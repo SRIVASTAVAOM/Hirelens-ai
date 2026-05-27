@@ -129,3 +129,26 @@ exports.login = async (req, res) => {
 
   }
 };
+exports.getProfile = async (req, res) => {
+
+  try {
+
+    const user = await prisma.user.findUnique({
+      where: {
+        id: req.user.userId
+      }
+    });
+
+    res.status(200).json({
+      user
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      error: error.message
+    });
+
+  }
+
+};
