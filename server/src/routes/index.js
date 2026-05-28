@@ -6,8 +6,11 @@ const router = express.Router();
 
 const resumeRoutes = require("./resume.routes");
 
+const aiRoutes = require("./ai.routes");
+
 router.use("/auth", authRoutes);
 router.use("/resume", resumeRoutes);
+router.use("/ai", aiRoutes);
 
 router.get("/", (req, res) => {
   res.json({
