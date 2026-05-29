@@ -11,6 +11,9 @@ import {
   sendChatMessage
 } from "../services/chatService";
 
+const API =
+  import.meta.env.VITE_API_URL;
+
 const Chatbot = () => {
 
   const [message, setMessage] =
@@ -47,7 +50,7 @@ const Chatbot = () => {
 
         await axios.delete(
 
-          "http://import.meta.env.VITE_API_URL/api/chat"
+          `${API}/api/chat`
 
         );
 
