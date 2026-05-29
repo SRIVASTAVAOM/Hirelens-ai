@@ -18,6 +18,9 @@ import {
 
 import axios from "axios";
 
+const API =
+  import.meta.env.VITE_API_URL;
+
 const History = () => {
 
   const [analyses, setAnalyses] =
@@ -36,7 +39,7 @@ const History = () => {
       const response =
         await axios.get(
 
-          "http://import.meta.env.VITE_API_URL/api/ai/history"
+          `${API}/api/ai/history`
 
         );
 
@@ -59,7 +62,7 @@ const History = () => {
 
         await axios.delete(
 
-          `http://import.meta.env.VITE_API_URL/api/ai/history/${id}`
+          `${API}/api/ai/history/${id}`
 
         );
 

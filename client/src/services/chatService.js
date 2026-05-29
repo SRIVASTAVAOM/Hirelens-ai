@@ -1,11 +1,14 @@
 import axios from "axios";
 
+const API =
+  import.meta.env.VITE_API_URL;
+
 export const sendChatMessage =
   async (message) => {
 
     return axios.post(
 
-      "http://import.meta.env.VITE_API_URL/api/chat",
+      `${API}/api/chat`,
 
       {
 
