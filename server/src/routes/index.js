@@ -1,21 +1,32 @@
-const express = require("express");
+const express =
+require("express");
 
-const authRoutes = require("./auth.routes");
+const router =
+express.Router();
 
-const router = express.Router();
+const authRoutes =
+require("./auth.routes");
 
-const resumeRoutes = require("./resume.routes");
+const aiRoutes =
+require("./ai.routes");
 
-const aiRoutes = require("./ai.routes");
+const chatRoutes =
+require("./chat.routes");
 
-router.use("/auth", authRoutes);
-router.use("/resume", resumeRoutes);
-router.use("/ai", aiRoutes);
+router.use(
+  "/auth",
+  authRoutes
+);
 
-router.get("/", (req, res) => {
-  res.json({
-    message: "API Working"
-  });
-});
+router.use(
+  "/ai",
+  aiRoutes
+);
 
-module.exports = router;
+router.use(
+  "/chat",
+  chatRoutes
+);
+
+module.exports =
+router;

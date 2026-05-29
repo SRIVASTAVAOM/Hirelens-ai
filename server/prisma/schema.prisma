@@ -19,3 +19,37 @@ model User {
   password  String
   createdAt DateTime @default(now())
 }
+
+model ResumeAnalysis {
+
+  id           String   @id @default(cuid())
+
+  atsScore     Int
+
+  skills       String[]
+
+  strengths    String[]
+
+  weaknesses   String[]
+
+  suggestions  String[]
+
+  createdAt    DateTime @default(now())
+
+  userId       String?
+
+  @@map("resume_analysis")
+
+}
+
+model Chat {
+
+  id        String   @id @default(cuid())
+
+  role      String
+
+  content   String
+
+  createdAt DateTime @default(now())
+
+}
