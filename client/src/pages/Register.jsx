@@ -1,5 +1,5 @@
 import { registerUser }
-from "../services/authServices";
+from "../services/authService";
 
 import { useState } from "react";
 
@@ -22,40 +22,47 @@ const Register = () => {
   const [password, setPassword] =
     useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =
+    async (e) => {
 
-    e.preventDefault();
+      e.preventDefault();
 
-    try {
+      try {
 
-      const response =
-        await registerUser({
+        const response =
+          await registerUser({
 
-          name,
-          email,
-          password
+            name,
+            email,
+            password
 
-        });
+          });
 
-      console.log(response.data);
+        console.log(
+          response.data
+        );
 
-      alert(
-        "Registration successful"
-      );
+        alert(
+          "Registration successful"
+        );
 
-      // Redirect to login
+        // Redirect to login
 
-      navigate("/login");
+        navigate(
+          "/login"
+        );
 
-    } catch (error) {
+      } catch (error) {
 
-      console.log(error);
+        console.log(error);
 
-      alert("Registration failed");
+        alert(
+          "Registration failed"
+        );
 
-    }
+      }
 
-  };
+    };
 
   return (
 
@@ -79,7 +86,9 @@ const Register = () => {
             placeholder="Enter name"
             value={name}
             onChange={(e) =>
-              setName(e.target.value)
+              setName(
+                e.target.value
+              )
             }
             className="w-full border p-3 rounded-lg"
           />
@@ -89,7 +98,9 @@ const Register = () => {
             placeholder="Enter email"
             value={email}
             onChange={(e) =>
-              setEmail(e.target.value)
+              setEmail(
+                e.target.value
+              )
             }
             className="w-full border p-3 rounded-lg"
           />
@@ -99,7 +110,9 @@ const Register = () => {
             placeholder="Enter password"
             value={password}
             onChange={(e) =>
-              setPassword(e.target.value)
+              setPassword(
+                e.target.value
+              )
             }
             className="w-full border p-3 rounded-lg"
           />

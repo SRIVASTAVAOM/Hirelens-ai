@@ -1,5 +1,5 @@
 import { loginUser }
-from "../services/authServices";
+from "../services/authService";
 
 import { useState } from "react";
 
@@ -8,8 +8,6 @@ import {
   Link,
   Navigate
 } from "react-router-dom";
-
-
 
 const Login = () => {
 
@@ -22,58 +20,71 @@ const Login = () => {
   const [password, setPassword] =
     useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =
+    async (e) => {
 
-    e.preventDefault();
+      e.preventDefault();
 
-    try {
+      try {
 
-      const response =
-        await loginUser({
+        const response =
+          await loginUser({
 
-          email,
-          password
+            email,
+            password
 
-        });
+          });
 
-      console.log(response.data);
+        console.log(
+          response.data
+        );
 
-      // Save token
+        // Save token
 
-      localStorage.setItem(
+        localStorage.setItem(
 
-        "token",
+          "token",
 
-        response.data.token
+          response.data.token
 
-      );
+        );
 
-      alert("Login successful");
+        alert(
+          "Login successful"
+        );
 
-      // Redirect
+        // Redirect
 
-      navigate("/dashboard");
+        navigate(
+          "/dashboard"
+        );
 
-    } catch (error) {
+      } catch (error) {
 
-      console.log(error);
+        console.log(error);
 
-      alert("Login failed");
+        alert(
+          "Login failed"
+        );
 
-    }
+      }
 
-  };
+    };
 
   const token =
-  localStorage.getItem("token");
+    localStorage.getItem(
+      "token"
+    );
 
-if (token) {
+  if (token) {
 
-  return (
-    <Navigate to="/dashboard" />
-  );
+    return (
+      <Navigate
+        to="/dashboard"
+      />
+    );
 
-}
+  }
 
   return (
 
@@ -97,7 +108,9 @@ if (token) {
             placeholder="Enter email"
             value={email}
             onChange={(e) =>
-              setEmail(e.target.value)
+              setEmail(
+                e.target.value
+              )
             }
             className="w-full border p-3 rounded-lg"
           />
@@ -107,7 +120,9 @@ if (token) {
             placeholder="Enter password"
             value={password}
             onChange={(e) =>
-              setPassword(e.target.value)
+              setPassword(
+                e.target.value
+              )
             }
             className="w-full border p-3 rounded-lg"
           />
