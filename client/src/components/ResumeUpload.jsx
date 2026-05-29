@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-import { analyzeResume }
-from "../services/aiService";
+import { analyzeResume } from "../services/aiservice";
 
 const ResumeUpload = ({
   setAnalysis
