@@ -36,7 +36,7 @@ const History = () => {
       const response =
         await axios.get(
 
-          "http://localhost:3000/api/ai/history"
+          "http://import.meta.env.VITE_API_URL/api/ai/history"
 
         );
 
@@ -59,7 +59,7 @@ const History = () => {
 
         await axios.delete(
 
-          `http://localhost:3000/api/ai/history/${id}`
+          `http://import.meta.env.VITE_API_URL/api/ai/history/${id}`
 
         );
 

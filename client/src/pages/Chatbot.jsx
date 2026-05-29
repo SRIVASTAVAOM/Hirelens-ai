@@ -47,7 +47,7 @@ const Chatbot = () => {
 
         await axios.delete(
 
-          "http://localhost:3000/api/chat"
+          "http://import.meta.env.VITE_API_URL/api/chat"
 
         );
 
