@@ -1,5 +1,8 @@
 import axios from "axios";
 
+const API =
+  import.meta.env.VITE_API_URL;
+
 export const analyzeResume =
   async (file) => {
 
@@ -13,7 +16,7 @@ export const analyzeResume =
 
     return axios.post(
 
-      `${import.meta.env.VITE_API_URL}/api/ai/analyze-resume`,
+      `${API}/api/ai/parse-resume`,
 
       formData
 
